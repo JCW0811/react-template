@@ -16,7 +16,7 @@ function ensureSlash(path, needsSlash) {
   if (hasSlash && !needsSlash) {
     return path.substr(path, path.length - 1);
   } else if (!hasSlash && needsSlash) {
-    return `${path}/`;
+    return `${path}`;
   } else {
     return path;
   }
@@ -34,17 +34,20 @@ const getPublicUrl = appPackageJson =>
 function getServedPath(appPackageJson) {
   const publicUrl = getPublicUrl(appPackageJson);
   const servedUrl =
-    envPublicUrl || (publicUrl ? url.parse(publicUrl).pathname : '/');
+    envPublicUrl || (publicUrl ? url.parse(publicUrl).pathname : '');
   return ensureSlash(servedUrl, true);
 }
-
+const resolveWWW = path.resolve(__dirname, '../../www');
+// const resolveWWW = path.resolve(__dirname, '../../platforms/android/assets/www');
+// const resolveWWW = path.resolve(__dirname, '../../platforms/ios/www');
 // config after eject: we're in ./config/
 module.exports = {
   dotenv: resolveApp('.env'),
   appBuild: resolveApp('build'),
+  appWWW:resolveWWW,
   appPublic: resolveApp('public'),
   appHtml: resolveApp('public/index.html'),
-  appIndexJs: resolveApp('src/routes/index.js'),
+  appIndexJs: resolveApp('src/index.js'),
   appPackageJson: resolveApp('package.json'),
   appSrc: resolveApp('src'),
   yarnLockFile: resolveApp('yarn.lock'),

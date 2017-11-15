@@ -75,7 +75,8 @@ class FormTemplate extends React.Component {
                                   {getFieldDecorator(controlsItem.controlNameAttr, {
                                     validateTrigger: ['onChange', 'onBlur'],
                                      rules: [
-                                     { required: controlsItem.required,message: `请输入${controlsItem.controlName}` }
+                                     { required: controlsItem.required,message: `请输入${controlsItem.controlName}` },
+                                     {max:5,message:'超过长度'}
                                      ],
                                   })(         
                                     <Input placeholder={controlsItem.controlNameAttr} />
