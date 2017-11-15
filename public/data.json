@@ -43,7 +43,7 @@
 					"controlName":"保存",
 					"controlEvent":"api/flow/templet/save",
 					"templetCode":"c6",
-					"controlNameAttr":"save",
+					"controlNameAttr":"submit",
 					"required":false
 				},
 				{
@@ -95,7 +95,7 @@
 					"controlName":"完成",
 					"controlEvent":"api/flow/templet/save",
 					"templetCode":"c8",
-					"controlNameAttr":"save",
+					"controlNameAttr":"submit",
 					"required":false
 				}
 			],
